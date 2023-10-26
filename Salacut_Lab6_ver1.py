@@ -1,22 +1,3 @@
-class sender:
-    def __init__(self, codeword) -> None:
-        self.codeword = codeword
-
-    def data(self) -> str:
-        return self.codeword
-
-
-class receiver: 
-    def __init__(self, codeword) -> None:
-        self.codeword = codeword
-
-    def data(self) -> str:
-        return self.codeword
-    
-def getData() -> []:
-    return [sender(input()), receiver(input())]
-
-
 def SPC():
     print("Simple Parity Check")
     data = getData()
