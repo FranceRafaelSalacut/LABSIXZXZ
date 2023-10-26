@@ -1,7 +1,6 @@
 def SPC():
     print("Simple Parity Check")
-    data = getData()
-
+    
 def TDPRC():
     print("Two-dimensional Parity Check")
 
