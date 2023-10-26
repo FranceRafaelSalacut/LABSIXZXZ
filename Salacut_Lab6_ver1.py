@@ -4,14 +4,14 @@ def SPC():
     senderData = input()
     recieverData = input()
 
-    ### sender side ###
+    ## sender side
     if senderData.count("1")%2 == 0:
         senderData+="0"
     else:
         senderData+="1"
     print("Codeword: " + senderData)
 
-    ### reciever side ###
+    ## reciever side 
     print("Dataword: ", end="")
     if recieverData.count("1")%2 == 0:
         print(recieverData[:-1])
@@ -66,9 +66,41 @@ def printRC(arr):
         for y in x[:-1] :
             print(y, end=" ") 
         print(" | " + x[-1])
-        
+
+#CheckSum       
 def CS():
-    print("Checksum")
+    data = input().replace(" ","")
+
+    ## Using python's libraries int() and bin()
+    ## Converting binary to decimal and 
+    dataWords = [
+        int(data[0:8], 2),
+        int(data[8:16],2),
+        int(data[16:24],2),
+        int(data[24:32],2),
+        int(data[32:40],2)
+    ]
+
+    ## Getting the Sum of all the datawords then converting it back to binary
+    netSum = bin(sum(dataWords))
+    ## removing the '0b' added by the bin() function
+    netSum = str(netSum)[2:]
+    
+    ##checking if the new len is greater than 8 bits and doing redoing the same process above
+    if len(netSum) > 8:
+        bound = len(netSum) - 8
+        temp = int(netSum[0: bound],2)
+        netSum = int(netSum[bound:], 2)
+        netSum = bin(temp+netSum)[2:]
+
+    print(netSum)
+    
+    if str(netSum).count("0") == 0:
+        print("Accept data")
+    else:
+        print("Checksum error detected.")
+
+
 
 def CRC():
     print("Cyclic Redundancy Check")
