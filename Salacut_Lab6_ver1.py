@@ -100,9 +100,28 @@ def CS():
 
 #Cyclic Redundancy Check
 def CRC():
-    print("not yet")
-    ## Using python's libraries int() and bin()
+    data = '1001110'#input()
+    divisor = '1011'#input()
 
+    decimalDivisor = int(divisor,2)
+    
+    upperbound = len(data)-len(divisor)
+    lenDivisor = len(divisor)
+    
+    ## Internet search says '^' is XOR buy uses decimal number instead of binary
+    for x in range(0, upperbound):
+        if data[x] != '0':
+            print("here")
+            temp = int(data[x:(x+lenDivisor)],2)
+            XOR = bin(temp ^ decimalDivisor)[2:]
+            diff = lenDivisor - len(XOR) 
+            newBits = ("0"*diff) + XOR
+            data = data[:x] + newBits + data[(x+lenDivisor):]
+
+    if data.count("1") == 0:
+        print("Accept data")
+    else:
+        print("Reject Data")
 def userInput():
     switch = {
         1:SPC,
