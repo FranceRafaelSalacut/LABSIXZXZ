@@ -53,6 +53,7 @@ def TDPRC():
         if x[:-1].count("1")%2 != int(x[-1]):
             error[1]+=1
 
+    ## finding intersections from the row and column
     print("Error count: ", end="")
     if error[0] > 0 or error[1] > 0:
         print((error[0]+1) * (error[1]+1) -1)
