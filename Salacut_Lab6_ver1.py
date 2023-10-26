@@ -11,7 +11,7 @@ def SPC():
     print("Codeword:" + senderData)
 
     ## reciever side 
-    print("Dataword: ", end="")
+    print("Data word: ", end="")
     if recieverData.count("1")%2 == 0:
         print("Accepted")
     else:
@@ -96,7 +96,7 @@ def CS():
     if str(netSum).count("0") == 0:
         print("Accept data")
     else:
-        print("Checksum error detected.")
+        print("Reject Data")
 
 #Cyclic Redundancy Check
 def CRC():
