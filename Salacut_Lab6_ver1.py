@@ -1,4 +1,3 @@
-
 #Simple Parity Check
 def SPC(): 
     senderData = input()
@@ -9,12 +8,12 @@ def SPC():
         senderData+="0"
     else:
         senderData+="1"
-    print("Codeword: " + senderData)
+    print("Codeword:" + senderData)
 
     ## reciever side 
     print("Dataword: ", end="")
     if recieverData.count("1")%2 == 0:
-        print(recieverData[:-1])
+        print("Accepted")
     else:
         print("Discarded")
 
@@ -92,18 +91,17 @@ def CS():
         temp = int(netSum[0: bound],2)
         netSum = int(netSum[bound:], 2)
         netSum = bin(temp+netSum)[2:]
-
-    print(netSum)
     
+    ## Checking if all are 1's
     if str(netSum).count("0") == 0:
         print("Accept data")
     else:
         print("Checksum error detected.")
 
-
-
+#Cyclic Redundancy Check
 def CRC():
-    print("Cyclic Redundancy Check")
+    print("not yet")
+    ## Using python's libraries int() and bin()
 
 def userInput():
     switch = {
